@@ -1,0 +1,136 @@
+[
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true,  "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": false, "internalType": "uint8",   "name": "role",    "type": "uint8"   }
+    ],
+    "name": "RoleAssigned",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true,  "internalType": "uint256", "name": "productId",    "type": "uint256" },
+      { "indexed": false, "internalType": "string",  "name": "name",         "type": "string"  },
+      { "indexed": true,  "internalType": "address", "name": "manufacturer", "type": "address" }
+    ],
+    "name": "ProductRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true,  "internalType": "uint256", "name": "productId", "type": "uint256" },
+      { "indexed": true,  "internalType": "address", "name": "from",      "type": "address" },
+      { "indexed": true,  "internalType": "address", "name": "to",        "type": "address" },
+      { "indexed": false, "internalType": "uint8",   "name": "newStatus", "type": "uint8"   }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+
+  {
+    "inputs": [],
+    "name": "contractOwner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "productCount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "roles",
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" },
+      { "internalType": "uint8",   "name": "role",    "type": "uint8"   }
+    ],
+    "name": "assignRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "name",        "type": "string" },
+      { "internalType": "string", "name": "description", "type": "string" }
+    ],
+    "name": "registerProduct",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "productId", "type": "uint256" },
+      { "internalType": "address", "name": "newOwner",  "type": "address" },
+      { "internalType": "uint8",   "name": "newStatus", "type": "uint8"   }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+    "name": "getRole",
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "productId", "type": "uint256" }],
+    "name": "getProduct",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "id",           "type": "uint256" },
+          { "internalType": "string",  "name": "name",         "type": "string"  },
+          { "internalType": "string",  "name": "description",  "type": "string"  },
+          { "internalType": "address", "name": "currentOwner", "type": "address" },
+          { "internalType": "uint8",   "name": "status",       "type": "uint8"   },
+          { "internalType": "bool",    "name": "exists",       "type": "bool"    }
+        ],
+        "internalType": "struct Muhammad_Haris_supplychain.Product",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "productId", "type": "uint256" }],
+    "name": "getProductHistory",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "from",      "type": "address" },
+          { "internalType": "address", "name": "to",        "type": "address" },
+          { "internalType": "uint8",   "name": "status",    "type": "uint8"   },
+          { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+          { "internalType": "string",  "name": "action",    "type": "string"  }
+        ],
+        "internalType": "struct Muhammad_Haris_supplychain.HistoryEntry[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
